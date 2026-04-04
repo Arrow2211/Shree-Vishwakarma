@@ -46,7 +46,7 @@ const RDCalculator: React.FC = () => {
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 max-w-4xl mx-auto">
       <div className="bg-primary p-6 text-white flex items-center gap-3">
         <Landmark className="text-accent" />
-        <h2 className="text-xl font-bold uppercase tracking-wider">{labels.title}</h2>
+        <h2 className="text-xl font-bold uppercase tracking-wider text-white">{labels.title}</h2>
       </div>
       
       <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">

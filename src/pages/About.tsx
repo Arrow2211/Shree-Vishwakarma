@@ -116,7 +116,7 @@ const About = () => {
         {/* Values - Modern Grid */}
         <div className="bg-primary-dark rounded-[3rem] p-12 md:p-20 text-white text-center border-b-4 border-accent relative overflow-hidden shadow-lg mb-20">
           <div className="absolute inset-0 bg-pattern opacity-5 pointer-events-none"></div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-16 tracking-tight relative z-10">
+          <h2 className="text-2xl md:text-4xl font-bold mb-16 tracking-tight relative z-10 text-white">
             {language === 'marathi' ? 'आमची मूल्ये' : 'Our Core Values'}
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">

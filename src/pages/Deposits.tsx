@@ -40,7 +40,7 @@ const Deposits = () => {
                 <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-accent">
                   <Landmark size={28} />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold uppercase tracking-widest">
+                <h2 className="text-xl md:text-2xl font-bold uppercase tracking-widest text-white">
                   {language === 'marathi' ? 'मुदत ठेव व्याजदर (सर्वसाधारण)' : 'Fixed Deposit Rates (General)'}
                 </h2>
               </div>
@@ -97,7 +97,7 @@ const Deposits = () => {
             <div className="lg:col-span-1 bg-primary text-white p-10 md:p-12 rounded-xl flex flex-col justify-center border-b-4 border-accent shadow-lg relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-500"></div>
               <Clock size={48} className="mb-8 text-accent relative z-10" />
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight relative z-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight relative z-10 text-white">
                 {language === 'marathi' ? 'पुनरावृत्ती ठेव (RD)' : 'Recurring Deposit (RD)'}
               </h2>
               <p className="text-slate-300 leading-relaxed mb-10 relative z-10">
@@ -155,7 +155,7 @@ const Deposits = () => {
           {/* RD Maturity Table - New Section from Image */}
           <div className="mb-24 bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
             <div className="bg-primary p-6 md:p-8 text-white border-b border-white/5">
-              <h3 className="text-xl md:text-2xl font-bold tracking-tight">
+              <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white">
                 {language === 'marathi' ? 'आरडी परिपक्वता रक्कम कोष्टक' : 'RD Maturity Amount Table'}
               </h3>
               <p className="text-slate-400 text-sm mt-2 opacity-80">
