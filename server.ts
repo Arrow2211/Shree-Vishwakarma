@@ -534,18 +534,26 @@ app.get("/api/content", async (req, res) => {
       
       // Deep merge Marathi
       if (row.marathi) {
-        mergedContent.marathi[section] = { 
-          ...(mergedContent.marathi[section] || {}), 
-          ...row.marathi 
-        };
+        if (Array.isArray(row.marathi)) {
+          mergedContent.marathi[section] = JSON.parse(JSON.stringify(row.marathi));
+        } else {
+          mergedContent.marathi[section] = { 
+            ...(mergedContent.marathi[section] || {}), 
+            ...row.marathi 
+          };
+        }
       }
       
       // Deep merge English
       if (row.english) {
-        mergedContent.english[section] = { 
-          ...(mergedContent.english[section] || {}), 
-          ...row.english 
-        };
+        if (Array.isArray(row.english)) {
+          mergedContent.english[section] = JSON.parse(JSON.stringify(row.english));
+        } else {
+          mergedContent.english[section] = { 
+            ...(mergedContent.english[section] || {}), 
+            ...row.english 
+          };
+        }
       }
     });
 

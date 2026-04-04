@@ -407,9 +407,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Bank Name (Navbar)</label>
                         <input 
                           type="text"
-                          value={localContent[lang].header?.bankName || ''}
+                          value={localContent[lang]?.header?.bankName || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang]) newContent[lang] = {};
                             if (!newContent[lang].header) newContent[lang].header = {};
                             newContent[lang].header.bankName = e.target.value;
                             setLocalContent(newContent);
@@ -421,7 +422,7 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Logo URL</label>
                         <input 
                           type="text"
-                          value={localContent[lang].header?.logoUrl || ''}
+                          value={localContent[lang]?.header?.logoUrl || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
                             if (!newContent[lang].header) newContent[lang].header = {};
@@ -436,7 +437,7 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Header Tagline</label>
                         <input 
                           type="text"
-                          value={localContent[lang].header?.tagline || ''}
+                          value={localContent[lang]?.header?.tagline || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
                             if (!newContent[lang].header) newContent[lang].header = {};
@@ -454,9 +455,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Title</label>
                         <input 
                           type="text"
-                          value={localContent[lang].hero.title}
+                          value={localContent[lang]?.hero?.title || ''}
                           onChange={(e) => {
-                            const newContent = {...localContent};
+                            const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].hero) newContent[lang].hero = {};
                             newContent[lang].hero.title = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -467,9 +469,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Tagline</label>
                         <input 
                           type="text"
-                          value={localContent[lang].hero.tagline}
+                          value={localContent[lang]?.hero?.tagline || ''}
                           onChange={(e) => {
-                            const newContent = {...localContent};
+                            const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].hero) newContent[lang].hero = {};
                             newContent[lang].hero.tagline = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -480,9 +483,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">CTA Button Text</label>
                         <input 
                           type="text"
-                          value={localContent[lang].hero.cta}
+                          value={localContent[lang]?.hero?.cta || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].hero) newContent[lang].hero = {};
                             newContent[lang].hero.cta = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -493,9 +497,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Hero Image URL</label>
                         <input 
                           type="text"
-                          value={localContent[lang].hero.imageUrl || ''}
+                          value={localContent[lang]?.hero?.imageUrl || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].hero) newContent[lang].hero = {};
                             newContent[lang].hero.imageUrl = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -507,14 +512,24 @@ NOTIFY pgrst, 'reload schema';`;
 
                     <h3 className="text-lg font-bold text-blue-900 mt-8 mb-4 capitalize">{lang} Testimonials</h3>
                     <div className="space-y-4">
-                      {localContent[lang].testimonials.map((t: any, idx: number) => (
+                      {(Array.isArray(localContent[lang]?.testimonials) ? (localContent[lang]?.testimonials || []) : Object.values(localContent[lang]?.testimonials || {})).map((t: any, idx: number) => (
                         <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-gray-100 space-y-3 relative group">
                           <button 
                             onClick={() => {
                               if (window.confirm('Are you sure you want to delete this testimonial?')) {
                                 const newContent = JSON.parse(JSON.stringify(localContent));
-                                newContent.marathi.testimonials.splice(idx, 1);
-                                newContent.english.testimonials.splice(idx, 1);
+                                if (Array.isArray(newContent.marathi.testimonials)) {
+                                  newContent.marathi.testimonials.splice(idx, 1);
+                                } else {
+                                  delete newContent.marathi.testimonials[idx];
+                                  newContent.marathi.testimonials = Object.values(newContent.marathi.testimonials);
+                                }
+                                if (Array.isArray(newContent.english.testimonials)) {
+                                  newContent.english.testimonials.splice(idx, 1);
+                                } else {
+                                  delete newContent.english.testimonials[idx];
+                                  newContent.english.testimonials = Object.values(newContent.english.testimonials);
+                                }
                                 setLocalContent(newContent);
                               }
                             }}
@@ -560,6 +575,8 @@ NOTIFY pgrst, 'reload schema';`;
                       <button 
                         onClick={() => {
                           const newContent = JSON.parse(JSON.stringify(localContent));
+                          if (!newContent.marathi.testimonials) newContent.marathi.testimonials = [];
+                          if (!newContent.english.testimonials) newContent.english.testimonials = [];
                           newContent.marathi.testimonials.push({ name: '', role: '', text: '' });
                           newContent.english.testimonials.push({ name: '', role: '', text: '' });
                           setLocalContent(newContent);
@@ -576,9 +593,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Section Title</label>
                         <input 
                           type="text"
-                          value={localContent[lang].services.title}
+                          value={localContent[lang]?.services?.title || ''}
                           onChange={(e) => {
-                            const newContent = {...localContent};
+                            const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].services) newContent[lang].services = {};
                             newContent[lang].services.title = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -589,9 +607,13 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700">Services List</label>
                         <button 
                           onClick={() => {
-                            const newContent = {...localContent};
-                            newContent.marathi.services.items.push({ title: '', desc: '' });
-                            newContent.english.services.items.push({ title: '', desc: '' });
+                          const newContent = JSON.parse(JSON.stringify(localContent));
+                          if (!newContent.marathi.services) newContent.marathi.services = { items: [] };
+                          if (!newContent.english.services) newContent.english.services = { items: [] };
+                          if (!newContent.marathi.services.items) newContent.marathi.services.items = [];
+                          if (!newContent.english.services.items) newContent.english.services.items = [];
+                          newContent.marathi.services.items.push({ title: '', desc: '' });
+                          newContent.english.services.items.push({ title: '', desc: '' });
                             setLocalContent(newContent);
                           }}
                           className="text-xs bg-green-600 text-white px-2 py-1 rounded hover:bg-green-700 flex items-center gap-1"
@@ -600,14 +622,29 @@ NOTIFY pgrst, 'reload schema';`;
                         </button>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {localContent[lang].services.items.map((s: any, idx: number) => (
+                        {(Array.isArray(localContent[lang]?.services?.items) ? (localContent[lang]?.services?.items || []) : Object.values(localContent[lang]?.services?.items || {})).map((s: any, idx: number) => (
                           <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-gray-100 space-y-2 relative group">
                             <button 
                               onClick={() => {
                                 if (window.confirm('Are you sure you want to delete this service?')) {
                                   const newContent = JSON.parse(JSON.stringify(localContent));
-                                  newContent.marathi.services.items.splice(idx, 1);
-                                  newContent.english.services.items.splice(idx, 1);
+                                  const marathiItems = newContent.marathi.services?.items || [];
+                                  const englishItems = newContent.english.services?.items || [];
+                                  
+                                  if (Array.isArray(marathiItems)) {
+                                    marathiItems.splice(idx, 1);
+                                  } else {
+                                    delete marathiItems[idx];
+                                    newContent.marathi.services.items = Object.values(marathiItems);
+                                  }
+                                  
+                                  if (Array.isArray(englishItems)) {
+                                    englishItems.splice(idx, 1);
+                                  } else {
+                                    delete englishItems[idx];
+                                    newContent.english.services.items = Object.values(englishItems);
+                                  }
+                                  
                                   setLocalContent(newContent);
                                 }
                               }}
@@ -646,9 +683,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Section Title</label>
                         <input 
                           type="text"
-                          value={localContent[lang].trust.title}
+                          value={localContent[lang]?.trust?.title || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].trust) newContent[lang].trust = {};
                             newContent[lang].trust.title = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -659,9 +697,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Trust Section Image URL</label>
                         <input 
                           type="text"
-                          value={localContent[lang].trust.imageUrl || ''}
+                          value={localContent[lang]?.trust?.imageUrl || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].trust) newContent[lang].trust = {};
                             newContent[lang].trust.imageUrl = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -673,9 +712,13 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700">Trust Items</label>
                         <button 
                           onClick={() => {
-                            const newContent = {...localContent};
-                            newContent.marathi.trust.items.push({ title: '', desc: '' });
-                            newContent.english.trust.items.push({ title: '', desc: '' });
+                          const newContent = JSON.parse(JSON.stringify(localContent));
+                          if (!newContent.marathi.trust) newContent.marathi.trust = { items: [] };
+                          if (!newContent.english.trust) newContent.english.trust = { items: [] };
+                          if (!newContent.marathi.trust.items) newContent.marathi.trust.items = [];
+                          if (!newContent.english.trust.items) newContent.english.trust.items = [];
+                          newContent.marathi.trust.items.push({ title: '', desc: '' });
+                          newContent.english.trust.items.push({ title: '', desc: '' });
                             setLocalContent(newContent);
                           }}
                           className="text-xs bg-green-600 text-white px-2 py-1 rounded hover:bg-green-700 flex items-center gap-1"
@@ -684,14 +727,29 @@ NOTIFY pgrst, 'reload schema';`;
                         </button>
                       </div>
                       <div className="space-y-4">
-                        {localContent[lang].trust.items.map((item: any, idx: number) => (
+                        {(Array.isArray(localContent[lang]?.trust?.items) ? (localContent[lang]?.trust?.items || []) : Object.values(localContent[lang]?.trust?.items || {})).map((item: any, idx: number) => (
                           <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-gray-100 space-y-2 relative group">
                             <button 
                               onClick={() => {
                                 if (window.confirm('Are you sure you want to delete this item?')) {
                                   const newContent = JSON.parse(JSON.stringify(localContent));
-                                  newContent.marathi.trust.items.splice(idx, 1);
-                                  newContent.english.trust.items.splice(idx, 1);
+                                  const marathiItems = newContent.marathi.trust?.items || [];
+                                  const englishItems = newContent.english.trust?.items || [];
+
+                                  if (Array.isArray(marathiItems)) {
+                                    marathiItems.splice(idx, 1);
+                                  } else {
+                                    delete marathiItems[idx];
+                                    newContent.marathi.trust.items = Object.values(marathiItems);
+                                  }
+
+                                  if (Array.isArray(englishItems)) {
+                                    englishItems.splice(idx, 1);
+                                  } else {
+                                    delete englishItems[idx];
+                                    newContent.english.trust.items = Object.values(englishItems);
+                                  }
+
                                   setLocalContent(newContent);
                                 }
                               }}
@@ -754,9 +812,10 @@ NOTIFY pgrst, 'reload schema';`;
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Introduction</label>
                         <textarea 
-                          value={localContent[lang].about.intro}
+                          value={localContent[lang]?.about?.intro || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].about) newContent[lang].about = {};
                             newContent[lang].about.intro = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -769,9 +828,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Mission</label>
                           <input 
                             type="text"
-                            value={localContent[lang].about.mission}
+                            value={localContent[lang]?.about?.mission || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].about) newContent[lang].about = {};
                               newContent[lang].about.mission = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -782,9 +842,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Vision</label>
                           <input 
                             type="text"
-                            value={localContent[lang].about.vision}
+                            value={localContent[lang]?.about?.vision || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].about) newContent[lang].about = {};
                               newContent[lang].about.vision = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -797,9 +858,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Reg No</label>
                           <input 
                             type="text"
-                            value={localContent[lang].about.regNo}
+                            value={localContent[lang]?.about?.regNo || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].about) newContent[lang].about = {};
                               newContent[lang].about.regNo = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -810,9 +872,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Reg Date</label>
                           <input 
                             type="text"
-                            value={localContent[lang].about.regDate}
+                            value={localContent[lang]?.about?.regDate || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].about) newContent[lang].about = {};
                               newContent[lang].about.regDate = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -823,9 +886,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Start Date</label>
                           <input 
                             type="text"
-                            value={localContent[lang].about.startDate}
+                            value={localContent[lang]?.about?.startDate || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].about) newContent[lang].about = {};
                               newContent[lang].about.startDate = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -866,9 +930,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Address</label>
                         <input 
                           type="text"
-                          value={localContent[lang].contact.address}
+                          value={localContent[lang]?.contact?.address || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].contact) newContent[lang].contact = {};
                             newContent[lang].contact.address = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -880,9 +945,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Phone</label>
                           <input 
                             type="text"
-                            value={localContent[lang].contact.phone}
+                            value={localContent[lang]?.contact?.phone || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].contact) newContent[lang].contact = {};
                               newContent[lang].contact.phone = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -893,9 +959,10 @@ NOTIFY pgrst, 'reload schema';`;
                           <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
                           <input 
                             type="text"
-                            value={localContent[lang].contact.email}
+                            value={localContent[lang]?.contact?.email || ''}
                             onChange={(e) => {
                               const newContent = JSON.parse(JSON.stringify(localContent));
+                              if (!newContent[lang].contact) newContent[lang].contact = {};
                               newContent[lang].contact.email = e.target.value;
                               setLocalContent(newContent);
                             }}
@@ -907,9 +974,10 @@ NOTIFY pgrst, 'reload schema';`;
                         <label className="block text-sm font-bold text-gray-700 mb-2">Google Maps Embed URL</label>
                         <input 
                           type="text"
-                          value={localContent[lang].contact.googleMapsUrl}
+                          value={localContent[lang]?.contact?.googleMapsUrl || ''}
                           onChange={(e) => {
                             const newContent = JSON.parse(JSON.stringify(localContent));
+                            if (!newContent[lang].contact) newContent[lang].contact = {};
                             newContent[lang].contact.googleMapsUrl = e.target.value;
                             setLocalContent(newContent);
                           }}
@@ -951,7 +1019,7 @@ NOTIFY pgrst, 'reload schema';`;
                 </div>
               </div>
               <div className="space-y-6">
-                {localDeposits.map((d: any, idx: number) => (
+                {(localDeposits || []).map((d: any, idx: number) => (
                   <div key={d.id} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 relative group">
                     <button 
                       onClick={() => {
@@ -1046,7 +1114,7 @@ NOTIFY pgrst, 'reload schema';`;
                 </div>
               </div>
               <div className="space-y-6">
-                {localRecurringDeposits.map((d: any, idx: number) => (
+                {(localRecurringDeposits || []).map((d: any, idx: number) => (
                   <div key={d.id} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 relative group">
                     <button 
                       onClick={() => {
@@ -1144,7 +1212,7 @@ NOTIFY pgrst, 'reload schema';`;
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-50">
-                    {localRdMaturity?.map((row: any, idx: number) => (
+                    {(localRdMaturity || []).map((row: any, idx: number) => (
                       <tr key={row.id} className="hover:bg-slate-50/30 transition-colors group">
                         <td className="px-6 py-4">
                           <input 
@@ -1245,7 +1313,7 @@ NOTIFY pgrst, 'reload schema';`;
                 </div>
               </div>
               <div className="space-y-6">
-                {localLoans.map((l: any, idx: number) => (
+                {(localLoans || []).map((l: any, idx: number) => (
                   <div key={l.id} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 relative group">
                     <button 
                       onClick={() => {

@@ -66,6 +66,27 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       ]);
 
       clearTimeout(timeoutId);
+
+      // Normalize content arrays (in case they were stored/returned as objects with numeric keys)
+      if (contentRes && contentRes.marathi) {
+        ['marathi', 'english'].forEach(lang => {
+          if (contentRes[lang]) {
+            // Normalize testimonials
+            if (contentRes[lang].testimonials && !Array.isArray(contentRes[lang].testimonials)) {
+              contentRes[lang].testimonials = Object.values(contentRes[lang].testimonials);
+            }
+            // Normalize services.items
+            if (contentRes[lang].services?.items && !Array.isArray(contentRes[lang].services.items)) {
+              contentRes[lang].services.items = Object.values(contentRes[lang].services.items);
+            }
+            // Normalize trust.items
+            if (contentRes[lang].trust?.items && !Array.isArray(contentRes[lang].trust.items)) {
+              contentRes[lang].trust.items = Object.values(contentRes[lang].trust.items);
+            }
+          }
+        });
+      }
+
       console.log('API Responses Received:', { 
         content: !!contentRes, 
         stats: !!statsRes, 
@@ -86,9 +107,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       }
 
       if (Array.isArray(depositsRes)) setDeposits(depositsRes);
+      else if (depositsRes && typeof depositsRes === 'object') setDeposits(Object.values(depositsRes));
+
       if (Array.isArray(recurringRes)) setRecurringDeposits(recurringRes);
+      else if (recurringRes && typeof recurringRes === 'object') setRecurringDeposits(Object.values(recurringRes));
+
       if (Array.isArray(loansRes)) setLoans(loansRes);
+      else if (loansRes && typeof loansRes === 'object') setLoans(Object.values(loansRes));
+
       if (Array.isArray(rdMaturityRes)) setRdMaturity(rdMaturityRes);
+      else if (rdMaturityRes && typeof rdMaturityRes === 'object') setRdMaturity(Object.values(rdMaturityRes));
     } catch (error) {
       console.error('Error in fetchData:', error);
     } finally {
