@@ -310,7 +310,6 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }
   return <>{children}</>;
 };
-
 const AppContent = () => {
   const { loading } = useLanguage();
   const location = useLocation();
