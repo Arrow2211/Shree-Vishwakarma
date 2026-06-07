@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": { "marathi": "तारण कर्ज", "english": "Mortgage Loan" },
+    "rate": "15%",
+    "description": { "marathi": "मालमत्ता तारण ठेवून कर्ज", "english": "Loan against property mortgage" }
+  },
+  {
+    "id": 2,
+    "name": { "marathi": "जामीनदार कर्ज", "english": "Guarantor Loan" },
+    "rate": "15%",
+    "description": { "marathi": "जामीनदाराच्या आधारे कर्ज", "english": "Loan based on guarantors" }
+  },
+  {
+    "id": 3,
+    "name": { "marathi": "छोटे कर्ज", "english": "Small Loan" },
+    "rate": "15%",
+    "description": { "marathi": "लहान गरजांसाठी छोटे कर्ज", "english": "Small loan for minor needs" }
+  },
+  {
+    "id": 4,
+    "name": { "marathi": "सुवर्ण कर्ज", "english": "Gold Loan" },
+    "rate": "10%",
+    "description": { "marathi": "सोने तारण ठेवून त्वरित कर्ज", "english": "Instant loan against gold ornaments" }
+  },
+  {
+    "id": 5,
+    "name": { "marathi": "ग्राहक कर्ज", "english": "Consumer Loan" },
+    "rate": "15%",
+    "description": { "marathi": "घरगुती वस्तू खरेदीसाठी कर्ज", "english": "Loan for purchasing household items" }
+  },
+  {
+    "id": 6,
+    "name": { "marathi": "पगारदार कर्ज", "english": "Salaried Loan" },
+    "rate": "15%",
+    "description": { "marathi": "पगारदार कर्मचाऱ्यांसाठी कर्ज", "english": "Loan for salaried employees" }
+  },
+  {
+    "id": 7,
+    "name": { "marathi": "तातडीचे कर्ज", "english": "Emergency Loan" },
+    "rate": "15%",
+    "description": { "marathi": "अचानक उद्भवणाऱ्या गरजांसाठी", "english": "For sudden emergency needs" }
+  }
+]

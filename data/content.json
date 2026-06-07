@@ -1,0 +1,229 @@
+{
+  "marathi": {
+    "nav": {
+      "home": "मुख्यपृष्ठ",
+      "about": "आमच्याबद्दल",
+      "deposits": "ठेवी",
+      "loans": "कर्ज",
+      "contact": "संपर्क",
+      "admin": "प्रशासक",
+      "quickLinks": "महत्वाच्या लिंक्स",
+      "privacyPolicy": "गोपनीयता धोरण",
+      "termsOfService": "सेवा अटी",
+      "staffLogin": "कर्मचारी लॉगिन"
+    },
+    "header": {
+      "bankName": "श्री विश्वकर्मा ग्रामीण पतसंस्था",
+      "tagline": "समृद्धीचे द्वार",
+      "logoUrl": ""
+    },
+    "hero": {
+      "title": "श्री विश्वकर्मा ग्रामीण बिगरशेती सहकारी पतसंस्था मर्या. जठ",
+      "tagline": "आपल्या प्रगतीसाठी विश्वासू आर्थिक साथीदार",
+      "cta": "संपर्क करा",
+      "savingsSchemes": "बचत योजना",
+      "loanSchemes": "कर्ज योजना",
+      "imageUrl": "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=2070"
+    },
+    "stats": {
+      "totalLoans": "एकूण कर्ज",
+      "totalDeposits": "एकूण ठेवी",
+      "shareCapital": "खेळते भागभांडवल",
+      "compositeBusiness": "संमिश्र व्यवसाय",
+      "totalMembers": "एकूण सभासद"
+    },
+    "about": {
+      "title": "संस्थेबद्दल माहिती",
+      "intro": "श्री विश्वकर्मा ग्रामीण बिगरशेती सहकारी पतसंस्था मर्या. जठ ही १९९९ पासून ग्रामीण भागातील लोकांच्या आर्थिक उन्नतीसाठी कार्यरत आहे.",
+      "mission": "स्थानिक लोकांना आर्थिकदृष्ट्या सक्षम करणे",
+      "vision": "ग्रामीण भागातील सर्वात विश्वासार्ह संस्था बनणे",
+      "regNo": "नोंदणी क्रमांक: SAN/JATH/RSR/CR/716/1999-2000",
+      "regDate": "नोंदणी दिनांक: ०९/०६/१९९९",
+      "startDate": "व्यवसाय प्रारंभ: १६/०८/१९९९"
+    },
+    "contact": {
+      "title": "संपर्क करा",
+      "address": "जत, सांगली, महाराष्ट्र",
+      "phone": "९४२०६७७६८१",
+      "email": "v.p.jath99@gmail.com",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.45!2d75.22015!3d17.04738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc141b777777777%3A0x7777777777777777!2sShri%20Vishwakarma%20Gramin%20Bigarsheti%20Sahakari%20Patsanstha%20Marya%2C%20Jath!5e0!3m2!1sen!2sin!4v1711992651000!5m2!1sen!2sin",
+      "form": {
+        "name": "नाव",
+        "email": "ईमेल",
+        "submit": "पाठवा",
+        "message": "संदेश"
+      }
+    },
+    "testimonials": [
+      {
+        "name": "विठ्ठल पाटील",
+        "role": "शेतकरी",
+        "text": "संस्थेच्या सुवर्ण कर्जामुळे मला वेळेवर खते आणि बियाणे घेता आली. प्रक्रिया खूप सोपी आहे."
+      },
+      {
+        "name": "सुनीता जाधव",
+        "role": "गृहिणी",
+        "text": "माझ्या बचतीवर मला चांगले व्याज मिळते. संस्थेचे कर्मचारी खूप मदत करतात."
+      },
+      {
+        "name": "रमेश कुलकर्णी",
+        "role": "व्यापारी",
+        "text": "व्यवसायासाठी तातडीचे कर्ज मिळवण्यासाठी ही सर्वोत्तम संस्था आहे."
+      }
+    ],
+    "services": {
+      "title": "आमच्या सेवा",
+      "items": [
+        {
+          "title": "बचत खाते",
+          "desc": "सुरक्षित बचत आणि आकर्षक व्याज"
+        },
+        {
+          "title": "मुदत ठेव",
+          "desc": "जास्तीत जास्त परताव्यासाठी"
+        },
+        {
+          "title": "पुनरावृत्ती ठेव",
+          "desc": "नियमित बचतीची सवय"
+        },
+        {
+          "title": "कर्ज सेवा",
+          "desc": "कमी व्याजदरात कर्ज"
+        }
+      ]
+    },
+    "trust": {
+      "title": "आमच्यावर विश्वास का ठेवावा?",
+      "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+      "items": [
+        {
+          "title": "१९९९ पासून सेवा",
+          "desc": "२५ वर्षांहून अधिक काळ ग्रामीण विकासात योगदान"
+        },
+        {
+          "title": "पारदर्शक व्यवहार",
+          "desc": "कोणतेही छुपे शुल्क नाही"
+        },
+        {
+          "title": "त्वरित कर्ज मंजुरी",
+          "desc": "कमी कागदपत्रे आणि जलद प्रक्रिया"
+        }
+      ]
+    }
+  },
+  "english": {
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "deposits": "Deposits",
+      "loans": "Loans",
+      "contact": "Contact",
+      "admin": "Admin",
+      "quickLinks": "Quick Links",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "staffLogin": "Staff Login"
+    },
+    "header": {
+      "bankName": "Shri Vishwakarma Society",
+      "tagline": "Gateway to Prosperity",
+      "logoUrl": ""
+    },
+    "hero": {
+      "title": "Shri Vishwakarma Gramin Bigarsheti Sahakari Patsanstha Marya, Jath",
+      "tagline": "Trusted Financial Growth for Every Member",
+      "cta": "Contact Us",
+      "savingsSchemes": "Savings Schemes",
+      "loanSchemes": "Loan Schemes",
+      "imageUrl": "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=2070"
+    },
+    "stats": {
+      "totalLoans": "Total Loans",
+      "totalDeposits": "Total Deposits",
+      "shareCapital": "Working Share Capital",
+      "compositeBusiness": "Composite Business",
+      "totalMembers": "Total Members"
+    },
+    "about": {
+      "title": "About Our Society",
+      "intro": "Shri Vishwakarma Gramin Bigarsheti Sahakari Patsanstha Marya, Jath has been working for the financial upliftment of rural people since 1999.",
+      "mission": "To financially empower local people",
+      "vision": "To become the most trusted institution in rural areas",
+      "regNo": "Reg. No: SAN/JATH/RSR/CR/716/1999-2000",
+      "regDate": "Reg. Date: 09/06/1999",
+      "startDate": "Start Date: 16/08/1999"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "Jath, Sangli, Maharashtra",
+      "phone": "9420677681",
+      "email": "v.p.jath99@gmail.com",
+      "googleMapsUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.45!2d75.22015!3d17.04738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc141b777777777%3A0x7777777777777777!2sShri%20Vishwakarma%20Gramin%20Bigarsheti%20Sahakari%20Patsanstha%20Marya%2C%20Jath!5e0!3m2!1sen!2sin!4v1711992651000!5m2!1sen!2sin",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Send"
+      }
+    },
+    "testimonials": [
+      {
+        "name": "Vitthal Patil",
+        "role": "Farmer",
+        "text": "The gold loan helped me buy seeds and fertilizers on time. The process is very simple."
+      },
+      {
+        "name": "Sunita Jadhav",
+        "role": "Homemaker",
+        "text": "I get good interest on my savings. The staff is very helpful."
+      },
+      {
+        "name": "Ramesh Kulkarni",
+        "role": "Merchant",
+        "text": "This is the best institution for getting emergency business loans."
+      }
+    ],
+    "services": {
+      "title": "Our Services",
+      "items": [
+        {
+          "title": "Savings Account",
+          "desc": "Secure savings with attractive interest"
+        },
+        {
+          "title": "Fixed Deposit",
+          "desc": "For maximum returns on investment"
+        },
+        {
+          "title": "Recurring Deposit",
+          "desc": "Habit of regular savings"
+        },
+        {
+          "title": "Loan Services",
+          "desc": "Loans at low interest rates"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Our Services",
+      "items": [
+        {
+          "title": "Savings Account",
+          "desc": "Secure savings with attractive interest"
+        },
+        {
+          "title": "Fixed Deposit",
+          "desc": "For maximum returns on investment"
+        },
+        {
+          "title": "Recurring Deposit",
+          "desc": "Habit of regular savings"
+        },
+        {
+          "title": "Loan Services",
+          "desc": "Loans at low interest rates"
+        }
+      ]
+    }
+  }
+}

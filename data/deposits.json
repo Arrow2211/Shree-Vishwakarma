@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": { "marathi": "४६ दिवस", "english": "46 Days" },
+    "general": "7%",
+    "senior": "7%"
+  },
+  {
+    "id": 2,
+    "name": { "marathi": "९१ दिवस", "english": "91 Days" },
+    "general": "7.25%",
+    "senior": "7.25%"
+  },
+  {
+    "id": 3,
+    "name": { "marathi": "१ वर्ष मासिक पेन्शन", "english": "1 Year Monthly Pension" },
+    "general": "8.50%",
+    "senior": "9%"
+  },
+  {
+    "id": 4,
+    "name": { "marathi": "३ वर्ष मासिक पेन्शन", "english": "3 Year Monthly Pension" },
+    "general": "9%",
+    "senior": "9.50%"
+  },
+  {
+    "id": 5,
+    "name": { "marathi": "दामदुप्पट योजना", "english": "Double Scheme" },
+    "general": "8.75%",
+    "senior": "8.75%"
+  }
+]

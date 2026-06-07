@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "period": { "marathi": "१ वर्ष", "english": "1 Year" },
+    "rate": "8.50%"
+  },
+  {
+    "id": 2,
+    "period": { "marathi": "३ वर्षे", "english": "3 Years" },
+    "rate": "9%"
+  },
+  {
+    "id": 3,
+    "period": { "marathi": "५ वर्षे", "english": "5 Years" },
+    "rate": "10%"
+  }
+]
